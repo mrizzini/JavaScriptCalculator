@@ -2,21 +2,32 @@
 
 $(document).ready(function() { 
     
-    var numberInput = "";
+    var numberInput = [];
 
-    	$("#one").click(function(){
-            // console.log("hey");
-            // numberInput = $(this).val();
-            // console.log(numberInput);
-    	});
+    // 	$("#one").click(function(){
+    //         // console.log("hey");
+    //         // numberInput = $(this).val();
+    //         // console.log(numberInput);
+    // 	});
     	
-    	$("#two").click(function(){
-            // console.log("hey 2");
-            // numberInput = $(this).val();
-            // console.log(numberInput);
-    	});
+    // 	$("#two").click(function(){
+    //         // console.log("hey 2");
+    //         // numberInput = $(this).val();
+    //         // console.log(numberInput);
+    // 	});
     	
-
+$( "button" ).click(function() {
+//   numberInput = $( this ).val();
+  
+//   numberInput.push($( this ).val()); 
+    numberInput.push($(this).val());
+    $("#total").html(numberInput);
+    console.log(numberInput);
+  
+});
+    	
+    // 	console.log(numberInput);
+ 
     	
     // 	console.log(numbers);
     	
