@@ -1,34 +1,82 @@
-body {
-    background-color: darkgray;
+body, div, a {
+    padding:0;
+    margin:0;
 }
 
 #calculator {
-    position: relative;
-    top: 5em;
-    left: 5em;
+	background-color: lightgray;
+	width: 310px;
+	height: 430px;
+	/*border: 3px black solid;*/
+	margin: 100px auto;
+	padding: 5px;
+	border-radius: 10px;
 }
 
-button {
-    width: 5em;
-}
-
-.container {
-    width: 400px;
-}
-
-.extra-bottom-padding{
-   margin-bottom: 10px;
-}
-
-#results {
-    padding-bottom: 1em;
-    width: 90%;
+#total {
+    height: 70px;
+    width: 260px;
+    margin: auto;
     background-color: white;
-}
-
-#resultsBox {
     margin-bottom: 5px;
-    position: relative;
+    text-align: right;
+    font-size: 60px;
+    padding: 0 5px;
+}
+
+#operators button {
+	display: block;
+	width: 45px;
+	height: 45px;
+	float: left;
+	color: black;
+	text-align: center;
+	font-size: 30px;
+	margin: 5px 6px;
+    background: lightblue;
 
 }
+
+#numbers button {
+	display: block;
+	width: 62px;
+	height: 62px;
+	float: left;
+	color: black;
+	text-align: center;
+	font-size: 30px;
+	margin: 5px 15px;
+    background: lightblue;
+	
+}
+
+/*#calculator {*/
+/*    position: relative;*/
+/*    top: 5em;*/
+/*    left: 5em;*/
+/*}*/
+
+/*button {*/
+/*    width: 5em;*/
+/*}*/
+
+/*.container {*/
+/*    width: 400px;*/
+/*}*/
+
+/*.extra-bottom-padding{*/
+/*   margin-bottom: 10px;*/
+/*}*/
+
+/*#results {*/
+/*    padding-bottom: 1em;*/
+/*    width: 90%;*/
+/*    background-color: white;*/
+/*}*/
+
+/*#resultsBox {*/
+/*    margin-bottom: 5px;*/
+/*    position: relative;*/
+
+/*}*/
 
