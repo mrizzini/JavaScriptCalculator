@@ -6,7 +6,7 @@ body, div, a {
 #calculator {
 	background-color: lightgray;
 	width: 310px;
-	height: 430px;
+	height: 460px;
 	/*border: 3px black solid;*/
 	margin: 100px auto;
 	padding: 5px;
@@ -21,6 +21,17 @@ body, div, a {
     margin-bottom: 5px;
     text-align: right;
     font-size: 35px;
+    padding: 0 5px;
+}
+
+#operationBox {
+    height: 20px;
+    width: 260px;
+    margin: auto;
+    background-color: darkgray;
+    margin-bottom: 5px;
+    text-align: right;
+    font-size: 15px;
     padding: 0 5px;
 }
 
