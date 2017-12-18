@@ -2,92 +2,47 @@
 
 $(document).ready(function() { 
     
-    var numberInput = [];
-    var numberInputTwo = [];
-    var operatorInput = [];
+    var numberInput = "";
+    var numberInputTwo = "";
+    var operatorInput = "";
     var joinNumbers = [];
     var joinNumbersTwo = [];
     var result = "";
     var operation = "";
-    var clicked = false;
 
-    // 	$("#one").click(function(){
-    //         // console.log("hey");
-    //         // numberInput = $(this).val();
-    //         // console.log(numberInput);
-    // 	});
-    	
-    // 	$("#two").click(function(){
-    //         // console.log("hey 2");
-    //         // numberInput = $(this).val();
-    //         // console.log(numberInput);
-    // 	});
     	
 $( "#numbers > button").not("#clearCurrent, #clearAll").click(function() {
-    // $("#total").html();
-//   numberInput = $( this ).val();
-  
-//   numberInput.push($( this ).val());
-
-//  if (clicked == true) {
-     
-//      console.log("clikced is true!");
-//     numberInputTwo.push($(this).val());
-//     joinNumbersTwo = numberInputTwo.join("");
-//     $("#total").html(joinNumbersTwo);
-//     console.log(joinNumbersTwo);
-//  } 
-  
-    numberInput.push($(this).val());
-    joinNumbers = numberInput.join("");
-    $("#total").html(joinNumbers);
-
-    // $("#operators > button").not("#equals").click(function(){
-    //     console.log("hiii");
-    //     joinNumbersTwo = operatorInput.join("");
-    // });
-    // // console.log(numberInput);
-    // console.log(joinNumbers + joinNumbersTwo);
-    console.log(operation);
-    console.log(joinNumbers);
-
-    
-  
+    numberInput +=  $(this).val();  
+    $("#total").html(numberInput);
+    console.log(numberInput);
 });
 
 $("#operators > button").not("#equals").click(function(){
-    // clicked = true;
-    numberInput.push($(this).val());
-    joinNumbers = numberInput.join("");
-    console.log(joinNumbers);
-    // $("#total").html(operatorInput);
-    // operation = joinNumbers + operatorInput;
-    // console.log(operation);
-    
-    // // joinNumbers = numberInput.join("");
-    // console.log(joinNumbers);
-    // console.log(operatorInput);
+    operatorInput = $(this).val();
+    numberInputTwo = numberInput;
+    numberInput = "";
+    $("#total").html(operatorInput);
+    console.log(operatorInput);
+    console.log(numberInput);
+    $("#total").html(operatorInput);
+
 });
 
 $("#equals").click(function(){
     console.log("equals pushed");
-    // console.log(typeof joinNumbers);
-   
-    $("#total").html(displayResults());
-    
-    function displayResults () {
-        parseInt(joinNumbers);
-        return joinNumbers;
+    if (operatorInput === "+") {
+        result = $("#total").html(parseInt(numberInputTwo) + parseInt(numberInput));
+        console.log(result);
+    } else if (operatorInput === "-") {
+        result = $("#total").html(parseInt(numberInputTwo) - parseInt(numberInput));
+        console.log(result);
+    } else if (operatorInput === "/") {
+        result = $("#total").html(parseInt(numberInputTwo) / parseInt(numberInput));
+        console.log(result);
+    } else if (operatorInput === "*") {
+        result = $("#total").html(parseInt(numberInputTwo) * parseInt(numberInput));
+        console.log(result);
     }
-    
-    //   numberInput.push($(this).val());
-    //     joinNumbers = numberInput.join("");
-    //     console.log(joinNumbers);
-    //     return jo
-        
-        
-    //  result = joinNumbers.join(operatorInput);
-    //  console.log(result);
 });
 
 
