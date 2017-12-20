@@ -5,38 +5,20 @@ $(document).ready(function() {
     var numberInput = "";
     var numberInputTwo = "";
     var operatorInput = "";
-    var result = "";
+    var result = 0;
     	
 $( "#numbers > button").not("#clearCurrent, #clearAll").click(function() {
+    
     numberInput +=  $(this).val();  
+    
+    for (var i = 0; i < numberInput.length; i++ ) {
+        
+    }
+    
     $("#total").html(numberInput);
-     $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
+    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
     // console.log(numberInput);
     console.log(numberInputTwo + operatorInput + numberInput);
-});
-
-
-$("#clearCurrent").click(function(){
-    console.log("current input cleared");
-    numberInput = "";
-    $("#total").html(0);
-    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
-    console.log(numberInput);
-    console.log(numberInputTwo);
-    console.log(operatorInput);
-});
-
-$("#clearAll").click(function(){
-    console.log("calculator cleared");
-    numberInput = "";
-    numberInputTwo = "";
-    operatorInput = "";
-    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
-    console.log(numberInput);
-    console.log(numberInputTwo);
-    console.log(operatorInput);
-
-    $("#total").html(0);
 });
 
 $("#operators > button").not("#equals").click(function(){
@@ -45,7 +27,7 @@ $("#operators > button").not("#equals").click(function(){
     numberInput = "";
     
     $("#total").html(operatorInput);
-     $("#operationBox").html(numberInputTwo + operatorInput);
+    $("#operationBox").html(numberInputTwo + operatorInput);
     console.log(numberInput + operatorInput);
     // console.log(operatorInput);
     // console.log(numberInput);
@@ -70,9 +52,30 @@ $("#equals").click(function(){
     }
 });
 
+$("#clearCurrent").click(function(){
+    console.log("current input cleared");
+    numberInput = "";
+    $("#total").html(0);
+    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
+    console.log(numberInput);
+    console.log(numberInputTwo);
+    console.log(operatorInput);
+});
+
+$("#clearAll").click(function(){
+    console.log("calculator cleared");
+    numberInput = "";
+    numberInputTwo = "";
+    operatorInput = "";
+    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
+    console.log(numberInput);
+    console.log(numberInputTwo);
+    console.log(operatorInput);
+
+    $("#total").html(0);
+});
+
     	
 });
 //above line ends the document ready
 
-
-    	
