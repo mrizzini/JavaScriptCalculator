@@ -3,31 +3,63 @@
 $(document).ready(function() { 
     
     var numberInput = "";
-    var numberInputTwo = "";
     var operatorInput = "";
     var result = 0;
+    var runningEquation = "";
     
     
     $("button").not("#clearCurrent, #clearAll, #equals").click(function() {
     // console.log("button");
     
-    numberInput += $(this).val();
+    
+    numberInput += ($(this).val());
     console.log(numberInput);
     $("#total").html(numberInput);
+
 });
     
      $("#equals").click(function() {
-        numberInput += $(this).val();
-        console.log("equals clicked");
-        console.log(numberInput);
-        // numberInput = numberInput.split("");
-        // console.log(numberInput);
-        for (var i = 0; i < numberInput.length; i++) {
-         result += parseFloat(numberInput[i]);
-         console.log(result);
-         
+    // operators = numberInput.split((/|"+"|"-"/g));
+    // var reg = new RegExp(/(\+)/, 'g'); this works for one operator!!!
+    var reg = new RegExp(/([\+\-\*\/])/, 'g');
+    runningEquation = numberInput.split(reg);
+    console.log(runningEquation);
+    // result = runningEquation[0];
+    console.log("so far, result is " + result);
+    console.log(runningEquation.length);
+    
+    for (var i = 0; i < runningEquation.length; i++) {
+        // console.log(runningEquation[i]);
+        
+        if (runningEquation[i] == "+") {
+            result += parseInt(runningEquation[i + 1]);
+            i += 1;
+            console.log("now, result is " + result);
+        } else {
+            result += parseInt(runningEquation[i]);
         }
-        //  $("#total").html(result);
+    }
+    console.log("final result is " + result);
+        // // numberInput += $(this).val();
+        // console.log("equals clicked");
+        // console.log(numberInput);
+        // // numberInput = numberInput.split("");
+        // // console.log(numberInput);
+        // for (var i = 0; i < numberInput.length; i++) {
+        // // console.log("hi there" + numberInput[i+1]);
+        // if (numberInput[i] == "+") {
+        //     result += parseInt(numberInput[i+1]);
+        //     i += 1;
+        //     console.log(result);
+        // } 
+        // else {
+        // result += parseInt(numberInput[i]);
+        // console.log(result);
+        // }
+        
+        // }
+        // console.log(result);
+        // //  $("#total").html(result);
      });
     	
 // $( "#numbers > button").not("#clearCurrent, #clearAll").click(function() {
