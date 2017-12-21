@@ -3,15 +3,12 @@
 $(document).ready(function() { 
     
     var numberInput = "";
-    var operatorInput = "";
     var result = 0;
     var runningEquation = "";
     
     
     $("button").not("#clearCurrent, #clearAll, #equals").click(function() {
     // console.log("button");
-    
-    
     numberInput += ($(this).val());
     console.log(numberInput);
     $("#total").html(numberInput);
@@ -34,33 +31,34 @@ $(document).ready(function() {
         if (runningEquation[i] == "+") {
             result += parseInt(runningEquation[i + 1]);
             i += 1;
-            console.log("now, result is " + result);
-        } else {
+            console.log("after addition, result is " + result);
+        } else if (runningEquation[i] == "-") {
+            result -= parseInt(runningEquation[i + 1]);
+            i += 1;
+            console.log("after subtraction, result is " + result);
+        } else if (runningEquation[i] == "*") {
+            result *= parseInt(runningEquation[i + 1]);
+            i += 1;
+        } else if (runningEquation[i] == "/") {
+            result /= parseInt(runningEquation[i + 1]);
+            i += 1;
+        }
+        else {
             result += parseInt(runningEquation[i]);
         }
     }
     console.log("final result is " + result);
-        // // numberInput += $(this).val();
-        // console.log("equals clicked");
-        // console.log(numberInput);
-        // // numberInput = numberInput.split("");
-        // // console.log(numberInput);
-        // for (var i = 0; i < numberInput.length; i++) {
-        // // console.log("hi there" + numberInput[i+1]);
-        // if (numberInput[i] == "+") {
-        //     result += parseInt(numberInput[i+1]);
-        //     i += 1;
-        //     console.log(result);
-        // } 
-        // else {
-        // result += parseInt(numberInput[i]);
-        // console.log(result);
-        // }
-        
-        // }
-        // console.log(result);
-        // //  $("#total").html(result);
+    $("#total").html(result);
      });
+     
+    //  $("#clearCurrent").click(function() {
+    //     console.log("current input cleared");
+    //         for (var i = 0; i < runningEquation.length; i++) {
+    //             runningEquation = runningEquation[i-1];
+    //         }
+    //         $("#total").html(runningEquation);
+    //         console.log(runningEquation);
+    //  });
     	
 // $( "#numbers > button").not("#clearCurrent, #clearAll").click(function() {
     
