@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var numberInput = "";
 	var result = 0;
 	var runningEquation = "";
+	var resultDisplay = "";
 	
 	$("button").not("#clearCurrent, #clearAll, #equals").click(function() {
 		// console.log("button");
@@ -49,13 +50,24 @@ $(document).ready(function() {
 			}
 		}
 		console.log("final result is " + result);
+	
+		resultDisplay = result.toString().length;
+		if (resultDisplay > 12) {
+			resultDisplay = result.toString().substring(0, 12);
+			result = parseFloat(resultDisplay);
+			}
+
 		$("#total").html(result);
 	});
 	
-	//  $("#clearCurrent").click(function() {
-	//     console.log("current input cleared");
-	//     console.log("after clear current, " + runningEquation);
-	//  });
+	 //$("#clearCurrent").click(function() {
+	 //   console.log("current input cleared");
+	 //   for (var i = 0; i < runningEquation.length; i++) {
+		// $("#total").html(runningEquation[i]);
+		
+		// runningEquation = parseFloat(numberInput[1]);}
+	 //   console.log("after clear current, " + runningEquation);
+	 //});
 	
 	$("#clearAll").click(function() {
 		numberInput = "";
