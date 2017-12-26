@@ -51,14 +51,14 @@ $("#equals").click(function(){
         console.log(result);
     }
 });
-
-$("#clearCurrent").click(function(){
-    console.log("current input cleared");
-    numberInput = "";
-    $("#total").html(0);
-    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
-    console.log(numberInput);
-    console.log(numberInputTwo);
+// 
+$("#// arCurrent").click(function(){
+    // sole.log("current input cleared");
+    // berInput = "";[i]1
+    // #total").html(0);
+    // #operationBox").html(numberInputTwo + operatorInput + numberInput);
+    // sole.log(numberInput);
+    // sole.log(numberInputTwo);
     console.log(operatorInput);
 });
 

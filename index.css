@@ -6,7 +6,6 @@ body, div, a {
 	background-color: lightgray;
 	width: 320px;
 	height: 460px;
-	/*border: 3px black solid;*/
 	margin: 100px auto;
 	padding: 5px;
 	border-radius: 10px;
@@ -20,6 +19,8 @@ body, div, a {
 	text-align: right;
 	font-size: 35px;
 	padding: 0 5px;
+	border-radius: 10px;
+
 }
 #operationBox {
 	height: 20px;
@@ -30,6 +31,8 @@ body, div, a {
 	text-align: right;
 	font-size: 15px;
 	padding: 0 5px;
+	border-radius: 10px;
+
 }
 #operators button {
 	display: block;
@@ -40,7 +43,9 @@ body, div, a {
 	text-align: center;
 	font-size: 30px;
 	margin: 5px 6px;
-	background: lightblue;
+	background: orange;
+	border-radius: 10px;
+
 }
 #numbers button {
 	display: block;
@@ -52,6 +57,8 @@ body, div, a {
 	font-size: 30px;
 	margin: 5px 15px;
 	background: lightblue;
+	border-radius: 10px;
+
 }
 .bottom-line {
 	display: block;

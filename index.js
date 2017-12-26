@@ -19,12 +19,7 @@ $(document).ready(function() {
 	});
 	
 	$("#equals").click(function() {
-		// operators = numberInput.split((/|"+"|"-"/g));
-		// var reg = new RegExp(/(\+)/, 'g'); this works for one operator!!!
-		// var reg = new RegExp(/([\+\-\*\/])/, 'g'); tested putting these lines in button click
-		// runningEquation = numberInput.split(reg); tested putting these lines in button click
 		console.log(runningEquation);
-		// result = runningEquation[0];
 		console.log("so far, result is " + result);
 		console.log(runningEquation.length);
 		for (var i = 0; i < runningEquation.length; i++) {
@@ -56,7 +51,6 @@ $(document).ready(function() {
 			resultDisplay = result.toString().substring(0, 12);
 			result = parseFloat(resultDisplay);
 			}
-
 		$("#total").html(result);
 	});
 	
