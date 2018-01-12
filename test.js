@@ -1,80 +1,74 @@
 /*global $*/
-
-$(document).ready(function() { 
-    
-    var numberInput = "";
-    var numberInputTwo = "";
-    var operatorInput = "";
-    var result = 0;
-    	
-$( "#numbers > button").not("#clearCurrent, #clearAll").click(function() {
-    
-    numberInput +=  $(this).val();  
-    
-    for (var i = 0; i < numberInput.length; i++ ) {
-        
-    }
-    
-    $("#total").html(numberInput);
-    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
-    // console.log(numberInput);
-    console.log(numberInputTwo + operatorInput + numberInput);
-});
-
-$("#operators > button").not("#equals").click(function(){
-    operatorInput = $(this).val();
-    numberInputTwo = numberInput;
-    numberInput = "";
-    
-    $("#total").html(operatorInput);
-    $("#operationBox").html(numberInputTwo + operatorInput);
-    console.log(numberInput + operatorInput);
-    // console.log(operatorInput);
-    // console.log(numberInput);
-    $("#total").html(operatorInput);
-
-});
-
-$("#equals").click(function(){
-    console.log("equals pushed");
-    if (operatorInput === "+") {
-        result = $("#total").html(parseFloat(numberInputTwo) + parseFloat(numberInput));
-        console.log(result);
-    } else if (operatorInput === "-") {
-        result = $("#total").html(parseInt(numberInputTwo) - parseInt(numberInput));
-        console.log(result);
-    } else if (operatorInput === "/") {
-        result = $("#total").html(parseInt(numberInputTwo) / parseInt(numberInput));
-        console.log(result);
-    } else if (operatorInput === "*") {
-        result = $("#total").html(parseInt(numberInputTwo) * parseInt(numberInput));
-        console.log(result);
-    }
-});
-// 
-$("#// arCurrent").click(function(){
-    // sole.log("current input cleared");
-    // berInput = "";[i]1
-    // #total").html(0);
-    // #operationBox").html(numberInputTwo + operatorInput + numberInput);
-    // sole.log(numberInput);
-    // sole.log(numberInputTwo);
-    console.log(operatorInput);
-});
-
-$("#clearAll").click(function(){
-    console.log("calculator cleared");
-    numberInput = "";
-    numberInputTwo = "";
-    operatorInput = "";
-    $("#operationBox").html(numberInputTwo + operatorInput + numberInput);
-    console.log(numberInput);
-    console.log(numberInputTwo);
-    console.log(operatorInput);
-
-    $("#total").html(0);
-});
-
-    	
-});
-//above line ends the document ready
+$(document).ready(function() {
+	var numberInput = "";
+	var result = 0;
+	var runningEquation = "";
+	var resultDisplay = "";
+	
+	$("button").not("#clearCurrent, #clearAll, #equals").click(function() {
+		numberInput += ($(this).val());
+		console.log(numberInput);
+		$("#operationBox").html(numberInput);
+		var reg = new RegExp(/([\+\-\*\/])/, 'g');
+		runningEquation = numberInput.split(reg);
+		console.log(runningEquation);
+		for (var i = 0; i < runningEquation.length; i++) {
+			$("#total").html(runningEquation[i]);
+		}
+	});
+	
+	$("#equals").click(function() {
+		console.log(runningEquation);
+		console.log("so far, result is " + result);
+		console.log(runningEquation.length);
+		for (var i = 0; i < runningEquation.length; i++) {
+			// console.log(runningEquation[i]);
+			if (runningEquation[i] == "+") {
+				result += parseFloat(runningEquation[i + 1]);
+				i += 1;
+				console.log("after addition, result is " + result);
+			} else if (runningEquation[i] == "-") {
+				result -= parseFloat(runningEquation[i + 1]);
+				i += 1;
+				console.log("after subtraction, result is " + result);
+			} else if (runningEquation[i] == "*") {
+				result *= parseFloat(runningEquation[i + 1]);
+				i += 1;
+				console.log("after multiplication, result is " + result);
+			} else if (runningEquation[i] == "/") {
+				result /= parseFloat(runningEquation[i + 1]);
+				i += 1;
+				console.log("after division, result is " + result);
+			} else {
+				result += parseFloat(runningEquation[i]);
+			}
+		}
+		console.log("final result is " + result);
+		
+		resultDisplay = result.toString().length;
+		if (resultDisplay > 12) {
+			resultDisplay = result.toString().substring(0, 12);
+			result = parseFloat(resultDisplay);
+		}
+		$("#total").html(result);
+	});
+	
+	$("#clearCurrent").click(function() {
+		console.log("current input cleared");
+		runningEquation.pop();
+		numberInput = runningEquation;
+		$("#operationBox").html(numberInput);
+		console.log(numberInput);
+		console.log("after clear current, " + runningEquation);
+	});
+	
+	$("#clearAll").click(function() {
+		numberInput = "";
+		runningEquation = "";
+		result = "";
+		$("#operationBox").html(0);
+		$("#total").html(0);
+		console.log("ENITRE CALCULATOR RESET, " + runningEquation);
+	});
+	
+}); // this line ends document ready
