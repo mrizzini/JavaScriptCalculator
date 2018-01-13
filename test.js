@@ -1,4 +1,5 @@
 /*global $*/
+
 $(document).ready(function() {
 	var numberInput = "";
 	var result = 0;
