@@ -53,16 +53,16 @@ $(document).ready(function() {
 		$("#total").html(result);
 	});
 	
-	$("#clearCurrent").click(function() {
+	$("#clearCurrent").click(function() { // this function clears the last number/operator entered into the calculator
 		console.log("current input cleared");
-		runningEquation.pop();
-		numberInput = runningEquation;
+		runningEquation.pop(); // removes the last index of the array
+		numberInput = runningEquation; 
 		$("#operationBox").html(numberInput);
 		console.log(numberInput);
 		console.log("after clear current, " + runningEquation);
 	});
 	
-	$("#clearAll").click(function() {
+	$("#clearAll").click(function() { // this function clears the entire calculator. 
 		numberInput = "";
 		runningEquation = "";
 		result = "";
